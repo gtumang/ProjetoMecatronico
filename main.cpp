@@ -6,7 +6,7 @@
 InterruptIn chave_fdc_zup(FDC_ZUP);
 InterruptIn chave_fdc_zdwn(FDC_ZDWN);
 InterruptIn btn_zup(BTN_ZUP);
-InterruptIn btn_zdwn(D13);
+InterruptIn btn_zdwn(BTN_ZDWN);
 InterruptIn emergencia(EMER_2);
 
 DigitalOut MP_Z(MOTOR_Z);
@@ -33,7 +33,9 @@ volatile int en_zup=1;
 volatile int en_zdwn=1;
 volatile int en_all=1;
 volatile int conta_passo = 0;
-float k = 1.5/(360/1.8);
+float passo_fuso = 3.9; //mm
+float passo_motor = 1.8; //graus
+float k = passo_fuso/(360.0/passo_motor); 
 
 //-----------------------------------------------Funcoes--------------------------------------------------------------//
 void pulsos_z(){
@@ -131,15 +133,15 @@ int main()
 
         LCD_IHM.locate(0,0);
         if(!en_all){
-            LCD_IHM.printf("EMERGENCIA!       ");
+            LCD_IHM.printf("EMERGENCIA!    ");
             
             // printf("EMERGENCIA!");
         }else{
 
-        LCD_IHM.printf("Passos: %1.2f mm ",conta_passo*k);
+        LCD_IHM.printf("Passos: %1.2f mm",conta_passo*k);
         }
         // LCD_IHM.cls();
-        printf("\r%i",conta_passo);
+        printf("\n\r%i",conta_passo);
     }
 
 }

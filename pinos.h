@@ -19,7 +19,7 @@
 #define BTN_YUP PA_14
 #define BTN_YDWN PA_15
 #define BTN_ZUP PC_13
-#define BTN_ZDWN PC_14
+#define BTN_ZDWN PC_11
 #define EMER_1 PC_15
 #define EMER_2 PC_6
 #define LCD_EN PC_5
