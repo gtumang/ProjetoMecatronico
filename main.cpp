@@ -33,13 +33,14 @@ volatile int en_zup=1;
 volatile int en_zdwn=1;
 volatile int en_all=1;
 volatile int conta_passo = 0;
+float k = 1.5/(360/1.8);
 
 //-----------------------------------------------Funcoes--------------------------------------------------------------//
 void pulsos_z(){
     MP_Z = !MP_Z;
-    if(!dir_z){
+    if(!dir_z && MP_Z){
         conta_passo++;
-    }else{
+    }else if(dir_z && MP_Z){
         conta_passo--;
     }
 }
@@ -135,9 +136,10 @@ int main()
             // printf("EMERGENCIA!");
         }else{
 
-        LCD_IHM.printf("Passos: %1.2f mm   ",conta_passo*0.025);
+        LCD_IHM.printf("Passos: %1.2f mm ",conta_passo*k);
         }
         // LCD_IHM.cls();
+        printf("\r%i",conta_passo);
     }
 
 }
