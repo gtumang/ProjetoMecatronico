@@ -160,6 +160,10 @@ void criar_coleta(){
                     criando_coleta = false;
                 }
                 if(!btn_cancel){
+                    btn_zup.fall(&movimentar_zup);
+                    btn_zup.rise(&parar_zup);
+                    btn_zdwn.fall(&movimentar_zdwn);
+                    btn_zdwn.rise(&parar_zdwn);
                     checando=false;
                 }
             }
