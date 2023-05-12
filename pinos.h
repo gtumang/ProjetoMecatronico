@@ -34,4 +34,5 @@
 #define BTN_SPEED3 PB_13
 #define PIPETA PC_4
 #define LAMP PC_0
+#define BTN_CANCEL PD_2
 
