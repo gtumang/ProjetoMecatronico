@@ -3,7 +3,6 @@
 #include "TextLCD.h"
 #include <ctime>
 
-
 InterruptIn chave_fdc_zup(FDC_ZUP);
 InterruptIn chave_fdc_zdwn(FDC_ZDWN);
 InterruptIn btn_zup(BTN_ZUP);
@@ -169,6 +168,7 @@ int main()
                 LCD_IHM.printf("Referenciar?");
             }
             referenciar();
+        }
         else{
         LCD_IHM.locate(0,0);
         LCD_IHM.printf("Z: %1.2f mm    ",conta_passo*k);
@@ -182,5 +182,4 @@ int main()
         }
     }
     enter_anterior = enter;
-    }
 }
